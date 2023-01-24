@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <title>Encriptador</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/softbank/145/closed-lock-with-key_1f510.png">
+    </head>
+    
+    <body>
+        <main>
+            <h1 class="titulo-animado">🔑Encriptador</h1>
+            <div>
+                <textarea id="texto" style="resize:none" cols="24" rows="15" placeholder="Ingrese texto aquí"></textarea>
+                <button onclick="encriptar()">Encriptar🔒</button>
+                <button onclick="desencriptar()">Desencriptar🔓</button>
+            </div>
+            <div>
+                <textarea id="resultado" style="resize:none" cols="24" rows="10" disabled></textarea>
+                <button id="copiar" onclick="copiar()">Copiar📄</button>
+            </div>
+            <div id="notification">
+                <script>
+                
+                    function encriptar() {
+                        var textarea = document.getElementById("texto");
+                        var contenido = textarea.value;
+                        
+                        if (/[A,E,I,O,U,á-ú]/.test(contenido)) {
+                            mostrarNotificacion("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
+                        } else {
+                            var nuevoContenido = contenido.replace(/e/g, "enter").replace(/i/g,"imes").replace(/a/g,"ai").replace(/o/g,"ober").replace(/u/g,"ufat");
+                            console.log(nuevoContenido); 
+                            document.getElementById("resultado").textContent = nuevoContenido;
+                            
+                    }
+                    if (window.innerWidth < 800) {
+                        alert("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
+                    } else {
+                        document.getElementById("notification").style.display = "block";
+                    } 
+                    }
+                    
+                    function desencriptar() {
+                        var textarea = document.getElementById("texto");
+                        var contenido = textarea.value;
+
+                        if (/[A,E,I,O,U,á-ú]/.test(contenido)) {
+                            mostrarNotificacion("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
+                        } else {
+                            var nuevoContenido = contenido.replace(/enter/g, "e").replace(/imes/g,"i").replace(/ai/g,"a").replace(/ober/g,"o").replace(/ufat/g,"u");
+                            console.log(nuevoContenido); 
+                            document.getElementById("resultado").textContent = nuevoContenido;   
+                        }
+                        if (window.innerWidth < 800) {
+                        alert("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
+                    } else {
+                        document.getElementById("notification").style.display = "block";
+                    }  
+                    }
+        
+                    function copiar() {
+        
+                        let areaTexto = document.getElementById("texto");
+                        let areaRespuesta = document.getElementById("resultado");
+        
+                        areaRespuesta.disabled = false;
+                        areaRespuesta.select();
+                        document.execCommand('copy');
+                        areaTexto.value = "";
+                        areaRespuesta.disabled = true;
+        
+                        mostrarNotificacion("El texto ha sido copiado correctamente✅");
+                        if (window.innerWidth < 800) {
+                        alert("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
+                    } else {
+                        document.getElementById("notification").style.display = "block";
+                    } 
+                    }
+
+                    function mostrarNotificacion(mensaje) {
+                        var notificacion = document.getElementById("notification");
+
+                        notificacion.textContent = mensaje;
+                        notificacion.style.display = "block";
+                        setTimeout(function() {
+                            notificacion.style.display = "none";
+                        }, 3000);
+                    }
+                </script>
+            </div>
+
+            
+            <footer>
+                <p>©2023 | Made with ♥ by Juan Felipe Tarazona</p>
+                <a href="https://github.com/ferkzone"></a>
+            </footer>
+        </main>    
+
+    </body>
+</html>

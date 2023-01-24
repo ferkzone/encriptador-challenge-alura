@@ -1,0 +1,113 @@
+body {
+  background-color: #6d2480;
+  font-family: sans-serif;
+}
+
+h1{
+  color: white;
+}
+
+textarea {
+  background-color: rgb(32, 32, 32);
+  color: white;
+  font-size: 16px;
+  margin: 10px;
+  padding: 1px;
+  border: 1px solid gray;
+  outline: none; 
+  box-shadow: 0 0 10px #719ECE;
+  width: 90%;
+}
+
+button {
+  background-color: deepskyblue;
+  color: white;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: blue;
+  transition: 300ms;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+a {
+  display: inline-block;
+  padding: 20px;
+  background-image: url('GitHubLogo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 99%;
+  background-color: #6d2480;
+  color: white;
+  text-align: center;
+  padding: 2px;
+}
+
+#notification {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 20px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  display: none;
+  font-weight: bold;
+  font-size: 18px;
+
+  animation: moverIzquierda 200ms ease-in-out;
+}
+
+#texto {
+  height: 200px;
+}
+
+#resultado {
+  height: 120px;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.boton-copiar {
+  position: auto;
+  bottom: 30px;
+}
+
+
+.titulo-animado {
+  animation: titulo-animado 1s ease-in-out;
+}
+
+@keyframes titulo-animado {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes moverIzquierda {
+  0% {
+    transform: translateX(100%);
+    
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
