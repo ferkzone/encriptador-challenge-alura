@@ -43,7 +43,7 @@ div {
 a {
   display: inline-block;
   padding: 20px;
-  background-image: url('GitHubLOgo.png');
+  background-image: url("./imagenes/GitHubLogo.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -55,7 +55,7 @@ footer{
   background-color: #6d2480;
   color: white;
   text-align: center;
-  padding: 2px;
+  padding: 1px;
 }
 
 #notification {

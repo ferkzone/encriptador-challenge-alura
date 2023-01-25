@@ -27,37 +27,35 @@
                         var textarea = document.getElementById("texto");
                         var contenido = textarea.value;
                         
-                        if (/[A,E,I,O,U,á-ú]/.test(contenido)) {
+                        if (/[A,E,I,O,U,á-ú]/.test(contenido) && window.innerWidth > 800) {
                             mostrarNotificacion("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
+                        }
+                        if (/[A,E,I,O,U,á-ú]/.test(contenido) && window.innerWidth < 800) {
+                            alert("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
                         } else {
                             var nuevoContenido = contenido.replace(/e/g, "enter").replace(/i/g,"imes").replace(/a/g,"ai").replace(/o/g,"ober").replace(/u/g,"ufat");
                             console.log(nuevoContenido); 
                             document.getElementById("resultado").textContent = nuevoContenido;
-                            
-                    }
-                    if (window.innerWidth < 800) {
-                        alert("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
-                    } else {
-                        document.getElementById("notification").style.display = "block";
-                    } 
+                            document.getElementById("notification").style.display = "block";
+                        }
                     }
                     
                     function desencriptar() {
                         var textarea = document.getElementById("texto");
                         var contenido = textarea.value;
 
-                        if (/[A,E,I,O,U,á-ú]/.test(contenido)) {
+                        if (/[A,E,I,O,U,á-ú]/.test(contenido) && window.innerWidth > 800) {
                             mostrarNotificacion("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
-                        } else {
+                        }
+                        if (/[A,E,I,O,U,á-ú]/.test(contenido) && window.innerWidth < 800) {
+                            alert("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
+                        }
+                         else {
                             var nuevoContenido = contenido.replace(/enter/g, "e").replace(/imes/g,"i").replace(/ai/g,"a").replace(/ober/g,"o").replace(/ufat/g,"u");
                             console.log(nuevoContenido); 
-                            document.getElementById("resultado").textContent = nuevoContenido;   
+                            document.getElementById("resultado").textContent = nuevoContenido;
+                            document.getElementById("notification").style.display = "block";   
                         }
-                        if (window.innerWidth < 800) {
-                        alert("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
-                    } else {
-                        document.getElementById("notification").style.display = "block";
-                    }  
                     }
         
                     function copiar() {
@@ -71,10 +69,12 @@
                         areaTexto.value = "";
                         areaRespuesta.disabled = true;
         
-                        mostrarNotificacion("El texto ha sido copiado correctamente✅");
                         if (window.innerWidth < 800) {
-                        alert("⚠ Por favor, escriba sólo en minúsculas y sin acentos");
-                    } else {
+                        alert("El texto ha sido copiado correctamente✅");
+                    }
+                    if (window.innerWidth > 800) {
+                        mostrarNotificacion("El texto ha sido copiado correctamente✅");
+                    }else {
                         document.getElementById("notification").style.display = "block";
                     } 
                     }
